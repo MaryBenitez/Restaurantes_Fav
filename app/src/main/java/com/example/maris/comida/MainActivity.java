@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         String TAG = "Mensaje";
         comidas = new ArrayList<>();
 
-        comidas.add(new Comida("Name: Pollo Campero\n","Especialidad: Pollo\n",R.drawable.pc,"Menu campero"));
-        comidas.add(new Comida("Name: Pizza Hut\n","Especialidad: Pizza\n",R.drawable.ph,"4 estaciones"));
-        comidas.add(new Comida("Name: China Wok\n","Especialidad: Comida China\n",R.drawable.cw,"Combo woki"));
-        comidas.add(new Comida("Name: Subway\n","Especialidad: Sandwish 7\n",R.drawable.sw,"Sub del dia"));
+        comidas.add(new Comida("Restaurante: Pollo Campero\n","Especialidad: Pollo\n",R.drawable.pc,"Promoción: Menú campero"));
+        comidas.add(new Comida("Restaurante: Pizza Hut\n","Especialidad: Pizza\n",R.drawable.ph,"Promoción: 4 estaciones"));
+        comidas.add(new Comida("Restaurante: China Wok\n","Especialidad: Comida China\n",R.drawable.cw,"Promoción: Combo woki"));
+        comidas.add(new Comida("Restaurante: Subway\n","Especialidad: Sandwish 7\n",R.drawable.sw,"Promoción: Sub del dia"));
 
     }
 
@@ -68,6 +68,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //funcion para la lista de favoritos, agregar o quitar
-    
+    public void agregar_favorite(Comida Lista_favorite){
+        comidas2.add(Lista_favorite);
+    }
+
+    public void quitar_favorite(String NRest){
+        int cont=0;
+
+        for(Comida comida : comidas2){
+            if(comida.getName() == NRest){
+                break;
+            }
+            cont++;
+        }
+        comidas2.remove(cont);
+        if(adapter.AdFavorite()){
+            adapter = new FoodAdapter(comidas2, this);
+            rv.setAdapter(adapter);
+        }
+    }
 
 }
