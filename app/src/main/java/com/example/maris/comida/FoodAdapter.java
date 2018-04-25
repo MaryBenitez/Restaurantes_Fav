@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
 
     private ArrayList<Comida> comidas;
     private Context context;
+    private static boolean favorite=false;
 
     @Override
     public ComidasViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -32,11 +34,31 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
     public void onBindViewHolder(final ComidasViewHolder holder, final int position) {
         holder.name.setText((comidas.get(position).getName()));
         holder.img.setImageResource(comidas.get(position).getImg());
+
+        //ver descripcion de restaurante
         holder.btn_ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Comida notificacion;
                 Toast.makeText(view.getContext(),comidas.get(position).getName()+""+comidas.get(position).getEsp()+""+comidas.get(position).getDesc(),Toast.LENGTH_SHORT).show();
+            }
+        });
+        if(comidas.get(position).isList_fav()){
+            holder.btnfav.setImageResource(R.drawable.fav);
+        }
+        else {
+            holder.btnfav.setImageResource(R.drawable.fav_mar);
+        }
+
+        //boton de la lista fav
+        holder.btnfav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(List_fav(position)){
+                    holder.btnfav.setImageResource(R.drawable.fav_mar);
+                    //agregando a favorito
+                    ((MainActivity)context).addContentView(comidas.get(position));
+                }
             }
         });
     }
@@ -46,13 +68,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
         return comidas.size();
     }
 
-    public static class ComidasViewHolder extends RecyclerView.ViewHolder{
+    public class ComidasViewHolder extends RecyclerView.ViewHolder{
         CardView card;
         TextView name;
         ImageView img;
         Button btn_ver;
-        Button btnfav;
-        Button btn_mar;
+        ImageButton btnfav;
 
         public ComidasViewHolder(View itemView){
             super(itemView);
@@ -61,7 +82,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
             card=itemView.findViewById(R.id.card_view);
             name=itemView.findViewById(R.id.name);
             img=itemView.findViewById(R.id.img);
-            btnfav=itemView.findViewById(R.id.btnfav);
+            btnfav=itemView.findViewById(R.id.btn_fav);
         }
     }
     public FoodAdapter(ArrayList<Comida> comidas, Context context){
@@ -69,5 +90,22 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
         this.context=context;
     }
 
+    public boolean List_fav(int pos){
+        comidas.get(pos).setList_fav(!comidas.get(pos).isList_fav());
+
+        return comidas.get(pos).isList_fav();
+    }
+
+    public void setT(){
+        favorite = true;
+    }
+
+    public void setF(){
+        favorite = false;
+    }
+
+    public boolean AdFavorite(){
+        return favorite;
+    }
 
 }

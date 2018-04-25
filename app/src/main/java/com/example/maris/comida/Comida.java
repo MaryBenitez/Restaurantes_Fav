@@ -13,12 +13,14 @@ public class Comida {
     private int img;
     private String desc;
     private Button btn;
+    private boolean list_fav;
 
     public Comida(String name, String esp, int img, String desc){
         this.name = name;
         this.esp = esp;
         this.img = img;
         this.desc = desc;
+        list_fav = false;
     }
 
     public String getName() {
@@ -31,8 +33,8 @@ public class Comida {
     public String getEsp() {
         return esp;
     }
-    public void setEsps(String caps) {
-        this.esp = caps;
+    public void setEsp(String esp) {
+        this.esp = esp;
     }
 
     public int getImg() {
@@ -56,4 +58,10 @@ public class Comida {
         this.btn = btn;
     }
 
+    public boolean isList_fav() {
+        return list_fav;
+    }
+    public void setList_fav(boolean list_fav) {
+        this.list_fav = list_fav;
+    }
 }
