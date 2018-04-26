@@ -44,15 +44,15 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
         holder.btn_ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Comida notificacion;
                 Toast.makeText(view.getContext(),comidas.get(position).getName()+""+comidas.get(position).getEsp()+""+comidas.get(position).getDesc(),Toast.LENGTH_SHORT).show();
             }
         });
+
         if(comidas.get(position).isList_fav()){
-            holder.btnfav.setImageResource(R.drawable.fav);
+            holder.btnfav.setImageResource(R.drawable.fav_mar);
         }
         else {
-            holder.btnfav.setImageResource(R.drawable.fav_mar);
+            holder.btnfav.setImageResource(R.drawable.fav);
         }
 
         //boton de la lista fav
@@ -96,7 +96,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
         }
     }
 
-   
+
 
     public boolean List_fav(int pos){
         comidas.get(pos).setList_fav(!comidas.get(pos).isList_fav());

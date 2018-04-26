@@ -33,7 +33,7 @@
             android:layout_marginRight="8dp"
             android:gravity="center_vertical"
             android:textAppearance="?android:textAppearance"
-            android:text="nombrel restaurante"/>
+            android:text="nombre restaurante"/>
 
         <Button
             android:id="@+id/btn_ver"
@@ -46,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:background="@drawable/fav"/>
+            android:scaleType="fitXY"/>
 
     </LinearLayout>
 

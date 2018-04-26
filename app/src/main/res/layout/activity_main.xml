@@ -17,15 +17,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/restaurantes" />
+            android:text="@string/restaurantes"
+            android:onClick="btn_rest"/>
 
         <Button
-            android:id="@+id/btn_favorite"
+            android:id="@+id/btnfavorite"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/favoritos"
-            />
+            android:onClick="btn_favorites"/>
 
     </LinearLayout>
 

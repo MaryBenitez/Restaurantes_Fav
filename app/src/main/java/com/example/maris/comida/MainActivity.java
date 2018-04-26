@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         comidas = new ArrayList<>();
         comidas2 = new ArrayList<>();
         btn_rest = findViewById(R.id.btnrest);
-        btn_favorite = findViewById(R.id.btn_favorite);
+        btn_favorite = findViewById(R.id.btnfavorite);
 
 
         rv = findViewById(R.id.recycler);
@@ -48,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         String TAG = "Mensaje";
         comidas = new ArrayList<>();
 
-        comidas.add(new Comida("Restaurante: Pollo Campero\n","Especialidad: Pollo\n",R.drawable.pc,"Promoción: Menú campero"));
-        comidas.add(new Comida("Restaurante: Pizza Hut\n","Especialidad: Pizza\n",R.drawable.ph,"Promoción: 4 estaciones"));
-        comidas.add(new Comida("Restaurante: China Wok\n","Especialidad: Comida China\n",R.drawable.cw,"Promoción: Combo woki"));
-        comidas.add(new Comida("Restaurante: Subway\n","Especialidad: Sandwish 7\n",R.drawable.sw,"Promoción: Sub del dia"));
+        comidas.add(new Comida("Pollo Campero\n","Especialidad: Pollo\n",R.drawable.pc,"Promoción: Menú campero"));
+        comidas.add(new Comida("Pizza Hut\n","Especialidad: Pizza\n",R.drawable.ph,"Promoción: 4 estaciones"));
+        comidas.add(new Comida("China Wok\n","Especialidad: Comida China\n",R.drawable.cw,"Promoción: Combo woki"));
+        comidas.add(new Comida("Subway\n","Especialidad: Sandwish \n",R.drawable.sw,"Promoción: Sub del dia"));
 
     }
 
