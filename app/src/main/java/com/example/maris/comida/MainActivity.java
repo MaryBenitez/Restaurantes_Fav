@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void btn_favorites(View view){
         adapter.setT();
-        adapter=new FoodAdapter(comidas,view.getContext());
+        adapter=new FoodAdapter(comidas2,view.getContext());
         rv.setAdapter(adapter);
     }
 
