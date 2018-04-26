@@ -24,6 +24,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
     private Context context;
     private static boolean favorite=false;
 
+    public FoodAdapter(ArrayList<Comida> comidas, Context context){
+        this.comidas=comidas;
+        this.context=context;
+    }
+
     @Override
     public ComidasViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cardview,parent,false);
@@ -57,7 +62,12 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
                 if(List_fav(position)){
                     holder.btnfav.setImageResource(R.drawable.fav_mar);
                     //agregando a favorito
-                    ((MainActivity)context).addContentView(comidas.get(position));
+                    ((MainActivity)context).agregar_favorite(comidas.get(position));
+                }
+                else {
+                    holder.btnfav.setImageResource(R.drawable.fav);
+                    //quitando de favorito
+                    ((MainActivity)context).eliminar_favorite(comidas.get(position).getName());
                 }
             }
         });
@@ -85,10 +95,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ComidasViewHol
             btnfav=itemView.findViewById(R.id.btn_fav);
         }
     }
-    public FoodAdapter(ArrayList<Comida> comidas, Context context){
-        this.comidas=comidas;
-        this.context=context;
-    }
+
+   
 
     public boolean List_fav(int pos){
         comidas.get(pos).setList_fav(!comidas.get(pos).isList_fav());

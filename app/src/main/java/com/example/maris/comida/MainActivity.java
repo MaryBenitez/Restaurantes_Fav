@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         comidas2.add(Lista_favorite);
     }
 
-    public void quitar_favorite(String NRest){
+    public void eliminar_favorite(String NRest){
         int cont=0;
 
         for(Comida comida : comidas2){

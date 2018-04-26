@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Comida</string>
+    <string name="app_name">Restaurantes</string>
+    <string name="restaurantes">Restaurantes</string>
+    <string name="favoritos">Favoritos</string>
 </resources>
